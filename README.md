@@ -18,8 +18,7 @@ My intention has been to create music that draws the listener into the world of 
 * Sound Production:
 </br>In my “micro” film scoring technique, advancing each slide seamlessly triggers a change to the music loop—a shift in texture, instrumentation, rhythm, melody, or harmony.
 * User Control:
-</br>![Pic1](https://raw.githubusercontent.com/CandylabS/paper-cranes/master/img/datGUI.png "dat-GUI")
-
+</br>![Pic1](https://raw.githubusercontent.com/CandylabS/paper-cranes/master/img/datGUI.png "dat-GUI") ![Pic1](https://raw.githubusercontent.com/CandylabS/paper-cranes/master/img/datGUI.png "dat-GUI")
 ## Technology
 Javascript, WebGL, WebAudioAPI,  [Three.js](https://threejs.org/) , [Tone.js](https://github.com/Tonejs/Tone.js), [dat.GUI](https://github.com/dataarts/dat.gui)
 ## Reference
