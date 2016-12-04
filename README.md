@@ -13,7 +13,7 @@ The goal of this project is to find musical equivalents to color, texture, line,
 </br>-- Movement mode 1 = All fish try to reach the center
 </br>-- Movement mode 2 = All fish align along a noise field
 </br>-- Movement mode 3 = All fish align along a radial vector field
-</br>![Pic2](https://raw.githubusercontent.com/CandylabS/paper-cranes/master/img/flocking.png "geometry-birds")
+<p>![Pic2](https://raw.githubusercontent.com/CandylabS/paper-cranes/master/img/flocking.png "geometry-birds")</p>
 * <b>Sound Production</b>:
 </br>Different sections or elements of the music are envisioned as responses to different areas within the image. In my “micro” film scoring technique, advancing each slide seamlessly triggers a change to the music loop—a shift in texture, instrumentation, rhythm, melody, or harmony.
 * <b>User Control</b>:
