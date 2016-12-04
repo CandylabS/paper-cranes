@@ -2,9 +2,9 @@
 ## Introduction
 An experiment of translating moving graphics into musical ideas.
 ## Background
-    Evoking the feeling of a broad, open space has been a device used by contemporary classical composers and ambient producers.
-</br>   Music, visual, and textual elements operate throughout eleven “scenes,” presented in a slideshow-like format in which a phrase of text is paired with an image and loop of music. Users advance through these slides at their own pace; they may also freely jump between slides out of order. 
-</br>   My intention has been to create music that draws the listener into the world of the artwork—music that "gives the listener a new lens through which to see art".
+<p>Evoking the feeling of a broad, open space has been a device used by contemporary classical composers and ambient producers.</p>
+<p>Music, visual, and textual elements operate throughout eleven “scenes,” presented in a slideshow-like format in which a phrase of text is paired with an image and loop of music. Users advance through these slides at their own pace; they may also freely jump between slides out of order. </p>
+<p>My intention has been to create music that draws the listener into the world of the artwork—music that "gives the listener a new lens through which to see art".</p>
 ## Method
 The goal of this project is to find musical equivalents to color, texture, line, shape, etc., and fit them with each other in a landscape music context.
 * <b>Visual Expression</b>:
