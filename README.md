@@ -12,10 +12,10 @@ My intention has been to create music that draws the listener into the world of 
 </br>-- Movement mode 1 = All fish try to reach the center
 </br>-- Movement mode 2 = All fish align along a noise field
 </br>-- Movement mode 3 = All fish align along a radial vector field
-![Pic2](https://raw.githubusercontent.com/CandylabS/paper-cranes/master/img/flocking.png "geometry-birds")
-* Sound Production:
+</br>![Pic2](https://raw.githubusercontent.com/CandylabS/paper-cranes/master/img/flocking.png "geometry-birds")
+* <b>Sound Production</br>:
 </br>Different sections or elements of the music are envisioned as responses to different areas within the image. In my “micro” film scoring technique, advancing each slide seamlessly triggers a change to the music loop—a shift in texture, instrumentation, rhythm, melody, or harmony.
-* User Control:
+* <b>User Control</b>:
 </br>![Pic1](https://raw.githubusercontent.com/CandylabS/paper-cranes/master/img/datGUI1.png "dat-GUI")
 
 ## Technology
