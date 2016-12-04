@@ -9,17 +9,17 @@ My intention has been to create music that draws the listener into the world of 
 ## Method
 My intention has been to create music that draws the listener into the world of the artwork—music that gives the listener a new lens through which to see art. finding musical equivalents to color, texture, line, shape, etc.
 * Visual Expression:
-With this example I focused highly on the calculation of the fish geometry which is realised mostly with vector math and the trigonometric functions. 
-[three.js canvas - geometry - birds](https://threejs.org/examples/canvas_geometry_birds.html) 
-The movement itself has 3 options: 
-Movement mode 1 = All fish try to reach the center
-Movement mode 2 = All fish align along a noise field
-Movement mode 3 = All fish align along a radial vector field
+</br>With this example I focused highly on the calculation of the fish geometry which is realised mostly with vector math and the trigonometric functions. [three.js canvas - geometry - birds](https://threejs.org/examples/canvas_geometry_birds.html) 
+</br>The movement itself has 3 options: 
+</br>Movement mode 1 = All fish try to reach the center
+</br>Movement mode 2 = All fish align along a noise field
+</br>Movement mode 3 = All fish align along a radial vector field
 ![Pic2](https://raw.githubusercontent.com/CandylabS/paper-cranes/master/img/flocking.png "geometry-birds")
 * Sound Production:
-In my “micro” film scoring technique, advancing each slide seamlessly triggers a change to the music loop—a shift in texture, instrumentation, rhythm, melody, or harmony.
+</br>In my “micro” film scoring technique, advancing each slide seamlessly triggers a change to the music loop—a shift in texture, instrumentation, rhythm, melody, or harmony.
 * User Control:
-![Pic1](https://raw.githubusercontent.com/CandylabS/paper-cranes/master/img/datGUI.png "dat-GUI")
+</br>![Pic1](https://raw.githubusercontent.com/CandylabS/paper-cranes/master/img/datGUI.png "dat-GUI")
+
 ## Technology
 Javascript, WebGL, WebAudioAPI, Three.JS, Tone.JS
 ## Reference
