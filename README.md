@@ -1,3 +1,3 @@
 # paper-cranes
-![Pic1](paper-cranes/img/datGUI.png "dat-GUI")
-![Pic2](paper-cranes/img/flocking.png "geometry-birds")
+![Pic1](https://raw.githubusercontent.com/CandylabS/paper-cranes/master/img/datGUI.png "dat-GUI")
+![Pic2](https://raw.githubusercontent.com/CandylabS/paper-cranes/master/img/flocking.png "geometry-birds")
