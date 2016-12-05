@@ -3,7 +3,7 @@
 An experiment of translating moving graphics into musical ideas.
 ## Background
 <p>Evoking the feeling of a broad, open space has been a device used by contemporary classical composers and ambient producers.</p>
-<p>My intention is to create music that draws the listener into the world of graphics — music that "gives the listener a new lens through which to see graphics".</p>
+<p>My intention is to create music that draws the listener into the world of artworks — music that "gives the listener a new lens" through which to see graphics.</p>
 ## Method
 The goal of this project is to find musical equivalents to color, texture, line, shape, etc., and fit them with each other in a landscape music context.
 * <b>Visual Expression</b>:
