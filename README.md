@@ -3,6 +3,7 @@
 An audio experiment of translating animations into musical ideas.
 ## Background
 <p>Evoking the feeling of a broad, open space has been a device used by contemporary classical composers and ambient producers.</p>
+<p>Different sections or elements of the music are envisioned as responses to different areas within the moving graphics. Each controlling factor of the scene triggers a change to the music loop—a shift in texture, instrumentation, rhythm, melody, or harmony.</p>
 <p>My intention is to create music that draws the listener into the world of digital artworks — music that "gives the listener a new lens" through which to see graphics.</p>
 ## Method
 The goal of this project is to find musical equivalents to color, texture, line, shape, etc., and fit them with each other in a landscape music context.
@@ -19,7 +20,7 @@ The goal of this project is to find musical equivalents to color, texture, line,
 </br>-- Movement mode 3 = All fish align along a radial vector field
 <p>![Pic2](https://raw.githubusercontent.com/CandylabS/paper-cranes/master/img/flocking.png "geometry-birds")</p>
 * <b>Sound Mapping</b>:
-<p>Different sections or elements of the music are envisioned as responses to different areas within the moving graphics. Each controlling factor of the scene triggers a change to the music loop—a shift in texture, instrumentation, rhythm, melody, or harmony.</p>
+<p>mapping strategy</p>
 * <b>User Control</b>:
 </br>![Pic1](https://raw.githubusercontent.com/CandylabS/paper-cranes/master/img/datGUI1.png "dat-GUI")
 
