@@ -1,6 +1,6 @@
 # paper-cranes
 ## Introduction
-An experiment of translating moving graphics into musical ideas.
+An audio experiment of translating animation graphics into musical ideas.
 ## Background
 <p>Evoking the feeling of a broad, open space has been a device used by contemporary classical composers and ambient producers.</p>
 <p>My intention is to create music that draws the listener into the world of artworks — music that "gives the listener a new lens" through which to see graphics.</p>
