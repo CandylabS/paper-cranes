@@ -8,16 +8,15 @@ An audio experiment of translating animations into musical ideas under the conte
 The goal of this project is to find musical equivalents to color, texture, line, shape, etc., and fit them with each other in a landscape music context.
 * <b>Visual Expression</b>:
 <p>With this example I started from a flocking birds particle system  [three.js canvas - geometry - birds](https://threejs.org/examples/canvas_geometry_birds.html) , which plays as a role of scene generator. It contains algorithms focused on the calculation of the bird geometry using vector math and the disturbing functions to simulate flocking behavior in real world.</p>
-<p>The movement itself has a bunch of options: </p>
-1.number of birds, density
-2.background color 
-3.shape, size, alignment
-4.directions, speed, attraction
-5.mouse behavior: on hover, on click
-</br>-- Movement mode 1 = All fish try to reach the center
-</br>-- Movement mode 2 = All fish align along a noise field
-</br>-- Movement mode 3 = All fish align along a radial vector field
 <p>![Pic2](https://raw.githubusercontent.com/CandylabS/paper-cranes/master/img/flocking.png "geometry-birds")</p>
+</br>A BIRD (geometry) or BOID (dynamics) instance itself is defined from several core features or factors, such as color (rgb, hsb), size (how far away from camera), phase (waveform function of left and right bird wings), as well as xy position and z depth.
+While “position” vector gives huge space for generating music changing in a “continuous” way. The chain reaction is position <code><- velocity <- acceleration</code>, on each frame one updates depending on another. Direct control of acceleration can indirectly moves position to somewhere else. In flocking simulation, acceleration can be directly change in at least five ways: 
+* Movement controller 1 = Separation - move apart for comfort
+* Movement controller 2 = Attraction or Cohesion - move closer
+* Movement controller 3 = Alignment - fly towards the same direction
+* Movement controller 4 = Repulsing force  - using mousemove event to disturb birds away from event.center
+* Movement controller 5 = Steering force - set the goal or destination for birds’ flocking behavior
+These five factors also have interior interactions between some of each other.
 * <b>Sound Mapping</b>:
 <p>mapping strategy</p>
 * <b>User Control</b>:
