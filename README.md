@@ -23,8 +23,8 @@ While “position” vector gives huge space for generating music changing in a 
 <p>mapping strategy</p>
 * <b>User Control</b>:
 <p>User control panel will be developed using dat.GUI library.</p>
-</br>![Pic1](https://raw.githubusercontent.com/CandylabS/paper-cranes/master/img/datGUI1.png "dat-GUI")
-<ol type="1">
+![Pic1](https://raw.githubusercontent.com/CandylabS/paper-cranes/master/img/datGUI1.png "dat-GUI")
+<ul>
 <li>Color [Hue, Saturation, Brightness]
 <ul>
     <li>background gradient</li>
@@ -40,7 +40,7 @@ While “position” vector gives huge space for generating music changing in a 
 <li>disturbance</li>
 <li>steering</li>
 <ul></li>
-</ol>
+</ul>
 passive factors such as bird size / position / velocity and their musical equivalents will automatically change depending on the input and algorithm.
 
 ## Technology
