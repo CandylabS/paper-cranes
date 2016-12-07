@@ -26,20 +26,21 @@ While “position” vector gives huge space for generating music changing in a 
 ![Pic1](https://raw.githubusercontent.com/CandylabS/paper-cranes/master/img/datGUI1.png "dat-GUI")
 <ul>
 <li>Color [Hue, Saturation, Brightness]
-<ul>
+    <ul>
     <li>background gradient</li>
     <li>bird color</li>
     </ul>
 </li>
 <li>Camera position</li>
 <li>Movement Controllers
-<ul>
-<li>separation</li> 
-<li>attraction</li>
-<li>alignment</li>
-<li>disturbance</li>
-<li>steering</li>
-<ul></li>
+    <ul>
+    <li>separation</li> 
+    <li>attraction</li>
+    <li>alignment</li>
+    <li>disturbance</li>
+    <li>steering</li>
+    </ul>
+</li>
 </ul>
 <p>passive factors such as bird size / position / velocity and their musical equivalents will automatically change depending on the input and algorithm.</p>
 
