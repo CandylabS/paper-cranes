@@ -20,7 +20,7 @@ While “position” vector gives huge space for generating music changing in a 
 </ul>
 <p>These five factors also have interior interactions between some of each other.</p>
 * <b>Sound Mapping</b>:
-<p>Birds are generated randomly, but will be grouped together within neighborhoodRadius. If this realm is large enough, then all birds will form a single group - monophonic. Otherwise, they will move in several chunks - polyphonic. Each chunk serves as an audio source, either sampler or synth. Its position in vector3d format: z represent for volume, x is frequency, and y is the filter center.</p>
+<p>Birds are generated randomly, but will be grouped together within neighborhoodRadius. If this realm is large enough, then all birds will form a single group - monophonic. Otherwise, they will move in several chunks - polyphonic. Each chunk serves as an audio source, either sampler or osc synth. Its position in vector3d format: z represent for volume, x is frequency, and y is filter center.</p>
 <p><b>Triggering</b> of sound is the result of wing phase. If phase didn’t change quicker than threshold rate, than birds will mute. While phase is a function of bird rotation.</p>
 <p>All birds move in a bounding box predefined in width(500) x height(500) and depth(200). That means by changing position of camera, we can see birds from different positions and distance. This is mapped to spatial audio factor, which is represent in Tone.Panner3D. 
 Bounding box depth is related to reverb, to create a sense of depth.</p>
@@ -36,8 +36,8 @@ Bounding box depth is related to reverb, to create a sense of depth.</p>
     <li>bird color</li>
     </ul>
 </li>
-<li>Camera position</li>
-<li>Bounding box depth</li>
+<li>Camera position \& Bounding box depth</li>
+<li>Neighborhood radius</li>
 <li>Movement Controllers
     <ul>
     <li>separation</li> 
