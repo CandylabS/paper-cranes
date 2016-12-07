@@ -11,8 +11,8 @@ The goal of this project is to find musical equivalents to color, texture, line,
 <p>![Pic2](https://raw.githubusercontent.com/CandylabS/paper-cranes/master/img/flocking.png "geometry-birds")</p>
 <p>A <b>BIRD</b> (geometry) or <b>BOID</b> (dynamics) instance is defined by several core features or factors, such as <code>color (rgb, hsb)</code>, <code>size</code> (how far away from camera), <code>phase</code> (waveform function of left and right bird wings), as well as <code>xy position</code> and <code>z depth</code>.
 While “position” vector gives huge space for generating music changing in a “continuous” way. The chain reaction is <code>position <- velocity <- acceleration</code>, on each frame one updates depending on another. Direct control of acceleration can indirectly moves position to somewhere else. In flocking simulation, acceleration can be directly change in at least five ways: </p>
-* Movement controller 1 = <b>Separation</b> - move apart for comfort
 <ul>
+<li>Movement controller 1 = <b>Separation</b> - move apart for comfort</li>
 <li>Movement controller 2 = <b>Attraction</b> or <b>Cohesion</b> - move closer</li>
 <li>Movement controller 3 = <b>Alignment</b> - fly towards the same direction</li>
 <li>Movement controller 4 = <b>Repulsive force</b>  - using mousemove event to disturb birds away from event.center</li>
