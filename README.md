@@ -32,6 +32,7 @@ While “position” vector gives huge space for generating music changing in a 
     </ul>
 </li>
 <li>Camera position</li>
+<li>Bounding box depth</li>
 <li>Movement Controllers
     <ul>
     <li>separation</li> 
