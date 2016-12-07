@@ -3,7 +3,8 @@
 var Boid = function() {
 
 	var vector = new THREE.Vector3(),
-		_acceleration, _width = 500,
+		_acceleration, 
+		_width = 500,
 		_height = 500,
 		_depth = 200,
 		_goal, _neighborhoodRadius = 100,

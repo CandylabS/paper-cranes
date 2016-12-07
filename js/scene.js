@@ -7,6 +7,7 @@ var camera, scene, renderer,
 	birds, bird;
 
 var boid, boids;
+var bird_num = 200;
 
 var stats;
 
@@ -23,7 +24,7 @@ function init() {
 	birds = [];
 	boids = [];
 
-	for (var i = 0; i < 200; i++) {
+	for (var i = 0; i < bird_num; i++) {
 
 		boid = boids[i] = new Boid();
 		boid.position.x = Math.random() * 400 - 200;
@@ -46,20 +47,20 @@ function init() {
 	}
 
 	renderer = new THREE.CanvasRenderer();
-	renderer.setClearColor(0xffffff);
+	renderer.setClearColor(0x000000);
 	renderer.setPixelRatio(window.devicePixelRatio);
 	renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
 
 	document.addEventListener('mousemove', onDocumentMouseMove, false);
 	document.body.appendChild(renderer.domElement);
+	// document.addEventListener('mouseup', valuesChanger, false);
 
-	stats = new Stats();
-	document.getElementById('container').appendChild(stats.dom);
+	// stats = new Stats();
+	// document.getElementById('container').appendChild(stats.dom);
 
 	//
 
 	window.addEventListener('resize', onWindowResize, false);
-
 }
 
 function onWindowResize() {
@@ -75,6 +76,7 @@ function onDocumentMouseMove(event) {
 
 	var vector = new THREE.Vector3(event.clientX - SCREEN_WIDTH_HALF, -event.clientY + SCREEN_HEIGHT_HALF, 0);
 
+	// move mouse to disturb birds
 	for (var i = 0, il = boids.length; i < il; i++) {
 
 		boid = boids[i];
@@ -93,19 +95,19 @@ function animate() {
 
 	requestAnimationFrame(animate);
 
-	stats.begin();
+	// stats.begin();
 	render();
-	stats.end();
+	// stats.end();
 
 }
 
 function render() {
 
 	for (var i = 0, il = birds.length; i < il; i++) {
-
+		// boid calculate position of bird
 		boid = boids[i];
 		boid.run(boids);
-
+		// bird show on the screen
 		bird = birds[i];
 		bird.position.copy(boids[i].position);
 
@@ -117,6 +119,7 @@ function render() {
 
 		bird.phase = (bird.phase + (Math.max(0, bird.rotation.z) + 0.1)) % 62.83;
 		bird.geometry.vertices[5].y = bird.geometry.vertices[4].y = Math.sin(bird.phase) * 5;
+		// flying cycle phase
 
 	}
 
