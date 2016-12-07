@@ -42,7 +42,7 @@ While “position” vector gives huge space for generating music changing in a 
     </ul>
 </li>
 </ul>
-<p>passive factors such as bird size / position / velocity and their musical equivalents will automatically change depending on the input and algorithm.</p>
+<p>Passive variables such as bird size / position / velocity and their musical equivalents will automatically change depending on the input and algorithm.</p>
 
 ## Technology
 Javascript, WebGL, WebAudioAPI,  [Three.js](https://threejs.org/) , [Tone.js](https://github.com/Tonejs/Tone.js), [dat.GUI](https://github.com/dataarts/dat.gui)
