@@ -9,14 +9,14 @@ The goal of this project is to find musical equivalents to color, texture, line,
 * <b>Visual Expression</b>:
 <p>With this example I started from a flocking birds particle system  [three.js canvas - geometry - birds](https://threejs.org/examples/canvas_geometry_birds.html) , which plays as a role of scene generator. It contains algorithms focused on the calculation of the bird geometry using vector math and the disturbing functions to simulate flocking behavior in real world.</p>
 <p>![Pic2](https://raw.githubusercontent.com/CandylabS/paper-cranes/master/img/flocking.png "geometry-birds")</p>
-</br>A BIRD (geometry) or BOID (dynamics) instance itself is defined from several core features or factors, such as color (rgb, hsb), size (how far away from camera), phase (waveform function of left and right bird wings), as well as xy position and z depth.
-While “position” vector gives huge space for generating music changing in a “continuous” way. The chain reaction is position <code><- velocity <- acceleration</code>, on each frame one updates depending on another. Direct control of acceleration can indirectly moves position to somewhere else. In flocking simulation, acceleration can be directly change in at least five ways: 
+<p>A <b>BIRD</b> (geometry) or <b>BOID</b> (dynamics) instance is defined by several core features or factors, such as <code>color (rgb, hsb)</code>, <code>size</code> (how far away from camera), <code>phase</code> (waveform function of left and right bird wings), as well as <code>xy position</code> and <code>z depth</code>.
+While “position” vector gives huge space for generating music changing in a “continuous” way. The chain reaction is <code>position <- velocity <- acceleration</code>, on each frame one updates depending on another. Direct control of acceleration can indirectly moves position to somewhere else. In flocking simulation, acceleration can be directly change in at least five ways: </p>
 * Movement controller 1 = Separation - move apart for comfort
 * Movement controller 2 = Attraction or Cohesion - move closer
 * Movement controller 3 = Alignment - fly towards the same direction
 * Movement controller 4 = Repulsing force  - using mousemove event to disturb birds away from event.center
 * Movement controller 5 = Steering force - set the goal or destination for birds’ flocking behavior
-These five factors also have interior interactions between some of each other.
+<p>These five factors also have interior interactions between some of each other.</p>
 * <b>Sound Mapping</b>:
 <p>mapping strategy</p>
 * <b>User Control</b>:
