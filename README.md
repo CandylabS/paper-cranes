@@ -6,7 +6,7 @@ An audio experiment of translating animations into musical ideas under the conte
 <p>My intention is to create music that draws the listener into the world of digital artworks — music that "gives the listener a new lens" through which to see graphics that simulate nature. In this project, each controlling factor of the scene triggers a change to the music loop—a shift in texture, instrumentation, rhythm, melody, or harmony.</p>
 ## Method
 The goal of this project is to find musical equivalents to color, texture, line, shape, etc., and fit them with each other in a landscape music context.
-### <b>Visual Expression</b>:
+* <b>Visual Expression</b>:
 <p>With this example I started from a flocking birds particle system  [three.js canvas - geometry - birds](https://threejs.org/examples/canvas_geometry_birds.html) , which plays as a role of scene generator. It contains algorithms focused on the calculation of the bird geometry using vector math and the disturbing functions to simulate flocking behavior in real world.</p>
 <p>![Pic2](https://raw.githubusercontent.com/CandylabS/paper-cranes/master/img/flocking.png "geometry-birds")</p>
 <p>A <b>BIRD</b> (geometry) or <b>BOID</b> (dynamics) instance is defined by several core features or factors, such as <code>color (rgb, hsb)</code>, <code>size</code> (how far away from camera), <code>phase</code> (waveform function of left and right bird wings), as well as <code>xy position</code> and <code>z depth</code>.
@@ -19,9 +19,9 @@ While “position” vector gives huge space for generating music changing in a 
 <li>Movement controller 5 = <b>Steering force</b> - set the goal or destination for birds’ flocking behavior</li>
 </ul>
 <p>These five factors also have interior interactions between some of each other.</p>
-### <b>Sound Mapping</b>:
+* <b>Sound Mapping</b>:
 <p>mapping strategy</p>
-### <b>User Control</b>:
+* <b>User Control</b>:
 </br>![Pic1](https://raw.githubusercontent.com/CandylabS/paper-cranes/master/img/datGUI1.png "dat-GUI")
 
 ## Technology
