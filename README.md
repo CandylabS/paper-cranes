@@ -22,7 +22,23 @@ While “position” vector gives huge space for generating music changing in a 
 * <b>Sound Mapping</b>:
 <p>mapping strategy</p>
 * <b>User Control</b>:
+<p>User control panel will be developed using dat.GUI library.</p>
 </br>![Pic1](https://raw.githubusercontent.com/CandylabS/paper-cranes/master/img/datGUI1.png "dat-GUI")
+<ol>
+  <ul>Color [Hue, Saturation, Brightness]
+    <li>background gradient</li>
+    <li>bird color</li>
+    </ul>
+<li>Camera position<li?
+<ul>Movement Controllers
+<li>separation</li> 
+<li>attraction</li>
+<li>alignment</li>
+<li>disturbance</li>
+<li>steering<li>
+</ul>
+</ol>
+passive factors such as bird size / position / velocity and their musical equivalents will automatically change depending on the input and algorithm.
 
 ## Technology
 Javascript, WebGL, WebAudioAPI,  [Three.js](https://threejs.org/) , [Tone.js](https://github.com/Tonejs/Tone.js), [dat.GUI](https://github.com/dataarts/dat.gui)
