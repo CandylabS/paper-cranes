@@ -24,19 +24,22 @@ While “position” vector gives huge space for generating music changing in a 
 * <b>User Control</b>:
 <p>User control panel will be developed using dat.GUI library.</p>
 </br>![Pic1](https://raw.githubusercontent.com/CandylabS/paper-cranes/master/img/datGUI1.png "dat-GUI")
-<ol>
-  <li>Color [Hue, Saturation, Brightness]
+<ol type="1">
+<li>Color [Hue, Saturation, Brightness]
+<ul>
     <li>background gradient</li>
     <li>bird color</li>
-    </li>
-<li>Camera position<li?
+    </ul>
+</li>
+<li>Camera position</li>
 <li>Movement Controllers
+<ul>
 <li>separation</li> 
 <li>attraction</li>
 <li>alignment</li>
 <li>disturbance</li>
-<li>steering<li>
-</li>
+<li>steering</li>
+<ul></li>
 </ol>
 passive factors such as bird size / position / velocity and their musical equivalents will automatically change depending on the input and algorithm.
 
