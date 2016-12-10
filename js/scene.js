@@ -10,6 +10,8 @@ var boid, boids;
 var bird_num = 200;
 
 var stats;
+var gui;
+var effectController
 
 init();
 animate();
@@ -17,7 +19,7 @@ animate();
 function init() {
 
 	camera = new THREE.PerspectiveCamera(75, SCREEN_WIDTH / SCREEN_HEIGHT, 1, 10000);
-	camera.position.z = 450;
+	camera.position.z = 1000;
 
 	scene = new THREE.Scene();
 
@@ -47,20 +49,76 @@ function init() {
 	}
 
 	renderer = new THREE.CanvasRenderer();
-	renderer.setClearColor(0x000000);
+	renderer.setClearColor(0xffffff);
 	renderer.setPixelRatio(window.devicePixelRatio);
 	renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
 
 	document.addEventListener('mousemove', onDocumentMouseMove, false);
 	document.body.appendChild(renderer.domElement);
-	// document.addEventListener('mouseup', valuesChanger, false);
+	document.addEventListener('mouseup', valuesChanger, false);
 
 	// stats = new Stats();
 	// document.getElementById('container').appendChild(stats.dom);
 
-	//
+	// gui
+	gui = new dat.GUI();
+
+
+	effectController = {
+		seperation: 20.0,
+		alignment: 20.0,
+		cohesion: 20.0,
+		bird_num: 200
+	};
+
+
+	gui.add(effectController, "seperation", 0.0, 100.0, 1.0).onChange(valuesChanger);
+	gui.add(effectController, "alignment", 0.0, 100, 0.001).onChange(valuesChanger);
+	gui.add(effectController, "cohesion", 0.0, 100, 0.025).onChange(valuesChanger);
+	gui.add(effectController, "bird_num", 10, 250, 1).onChange(valuesChanger);
+	gui.close();
 
 	window.addEventListener('resize', onWindowResize, false);
+}
+
+function valuesChanger() {
+
+	// velocityUniforms.seperationDistance.value = effectController.seperation;
+	// velocityUniforms.alignmentDistance.value = effectController.alignment;
+	// velocityUniforms.cohesionDistance.value = effectController.cohesion;
+	// velocityUniforms.freedomFactor.value = effectController.freedom;
+	bird_num = effectController.bird_num;
+	resetBirds();
+	// init();
+
+};
+
+function resetBirds() {
+	scene = new THREE.Scene();
+	birds = [];
+	boids = [];
+
+	for (var i = 0; i < bird_num; i++) {
+
+		boid = boids[i] = new Boid();
+		boid.position.x = Math.random() * 400 - 200;
+		boid.position.y = Math.random() * 400 - 200;
+		boid.position.z = Math.random() * 400 - 200;
+		boid.velocity.x = Math.random() * 2 - 1;
+		boid.velocity.y = Math.random() * 2 - 1;
+		boid.velocity.z = Math.random() * 2 - 1;
+		boid.setAvoidWalls(true);
+		boid.setWorldSize(500, 500, 400);
+
+		bird = birds[i] = new THREE.Mesh(new Bird(), new THREE.MeshBasicMaterial({
+			color: Math.random() * 0xffffff,
+			side: THREE.DoubleSide
+		}));
+		bird.phase = Math.floor(Math.random() * 62.83);
+		scene.add(bird);
+
+
+	}
 }
 
 function onWindowResize() {
