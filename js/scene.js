@@ -9,9 +9,15 @@ var camera, scene, renderer,
 var boid, boids;
 var bird_num = 200;
 
+var bird_color = 0xffffff;
+var background = 0xffffff;
+
 var stats;
 var gui;
-var effectController
+var effectController;
+
+var simulating = true;
+var mTimer = 100;
 
 init();
 animate();
@@ -39,7 +45,7 @@ function init() {
 		boid.setWorldSize(500, 500, 400);
 
 		bird = birds[i] = new THREE.Mesh(new Bird(), new THREE.MeshBasicMaterial({
-			color: Math.random() * 0xffffff,
+			color: Math.random() * bird_color,
 			side: THREE.DoubleSide
 		}));
 		bird.phase = Math.floor(Math.random() * 62.83);
@@ -49,7 +55,7 @@ function init() {
 	}
 
 	renderer = new THREE.CanvasRenderer();
-	renderer.setClearColor(0xffffff);
+	renderer.setClearColor(background);
 	renderer.setPixelRatio(window.devicePixelRatio);
 	renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
 
@@ -67,18 +73,19 @@ function init() {
 	effectController = {
 		seperation: 20.0,
 		alignment: 20.0,
-		cohesion: 20.0,
+		camera: 800,
 		bird_num: 200
 	};
 
 
 	gui.add(effectController, "seperation", 0.0, 100.0, 1.0).onChange(valuesChanger);
 	gui.add(effectController, "alignment", 0.0, 100, 0.001).onChange(valuesChanger);
-	gui.add(effectController, "cohesion", 0.0, 100, 0.025).onChange(valuesChanger);
+	gui.add(effectController, "camera", 100, 1000, 20).onChange(valuesChanger);
 	gui.add(effectController, "bird_num", 10, 250, 1).onChange(valuesChanger);
 	gui.close();
 
 	window.addEventListener('resize', onWindowResize, false);
+	window.addEventListener('keydown', checkKeyPressed, false);
 }
 
 function valuesChanger() {
@@ -86,15 +93,16 @@ function valuesChanger() {
 	// velocityUniforms.seperationDistance.value = effectController.seperation;
 	// velocityUniforms.alignmentDistance.value = effectController.alignment;
 	// velocityUniforms.cohesionDistance.value = effectController.cohesion;
-	// velocityUniforms.freedomFactor.value = effectController.freedom;
+	camera.position.z = effectController.camera;
 	bird_num = effectController.bird_num;
-	resetBirds();
+	reset();
 	// init();
 
 };
 
-function resetBirds() {
+function reset() {
 	scene = new THREE.Scene();
+
 	birds = [];
 	boids = [];
 
@@ -111,7 +119,7 @@ function resetBirds() {
 		boid.setWorldSize(500, 500, 400);
 
 		bird = birds[i] = new THREE.Mesh(new Bird(), new THREE.MeshBasicMaterial({
-			color: Math.random() * 0xffffff,
+			color: Math.random() * bird_color,
 			side: THREE.DoubleSide
 		}));
 		bird.phase = Math.floor(Math.random() * 62.83);
@@ -119,6 +127,13 @@ function resetBirds() {
 
 
 	}
+}
+
+function checkKeyPressed(e) {
+	if (e.keyCode == "32") {
+		simulating = !simulating;
+        console.log("The space key is pressed.");
+    }
 }
 
 function onWindowResize() {
@@ -154,7 +169,9 @@ function animate() {
 	requestAnimationFrame(animate);
 
 	// stats.begin();
-	render();
+	if (simulating) {
+		render();
+	}
 	// stats.end();
 
 }
