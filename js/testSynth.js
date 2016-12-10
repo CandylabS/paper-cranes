@@ -129,4 +129,12 @@ new Tone.Loop(time => {
 
 // Tone's Transport needs to be started for any loops to become active
 Tone.Transport.bpm.value = 120;
-Tone.Transport.start();
+var audioON = true;
+
+window.addEventListener('keydown', myKeyPressed, false);
+function myKeyPressed(e) {
+	if (e.keyCode == "32") {
+		Tone.Transport.start();
+		console.log("The space key is pressed.");
+	}
+}

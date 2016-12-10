@@ -9,8 +9,10 @@ var camera, scene, renderer,
 var boid, boids;
 var bird_num = 200;
 
-var bird_color = 0xffffff;
+var bird_color = 0x000000;
 var background = 0xffffff;
+var back_colors = [0xffffff, 0xFBFFEF, 0xBAA693, 0xFFD9DA, 0x94A47D, 0xC3C3E6, 0x8997B4, 0x3C475D, 0x000000];
+var bird_colors = [0xffffff, 0xA3A7B3, 0x000000];
 
 var stats;
 var gui;
@@ -19,11 +21,13 @@ var effectController;
 var simulating = true;
 var mTimer = 100;
 
+var mEnv = false;
+var mSyn = false;
+
 init();
 animate();
 
 function init() {
-
 	camera = new THREE.PerspectiveCamera(75, SCREEN_WIDTH / SCREEN_HEIGHT, 1, 10000);
 	camera.position.z = 1000;
 
@@ -45,13 +49,11 @@ function init() {
 		boid.setWorldSize(500, 500, 400);
 
 		bird = birds[i] = new THREE.Mesh(new Bird(), new THREE.MeshBasicMaterial({
-			color: Math.random() * bird_color,
+			color: bird_color,
 			side: THREE.DoubleSide
 		}));
 		bird.phase = Math.floor(Math.random() * 62.83);
 		scene.add(bird);
-
-
 	}
 
 	renderer = new THREE.CanvasRenderer();
@@ -95,13 +97,14 @@ function valuesChanger() {
 	// velocityUniforms.cohesionDistance.value = effectController.cohesion;
 	camera.position.z = effectController.camera;
 	bird_num = effectController.bird_num;
-	reset();
+	// reset();
 	// init();
 
 };
 
 function reset() {
 	scene = new THREE.Scene();
+	// scene.add(group);
 
 	birds = [];
 	boids = [];
@@ -119,7 +122,7 @@ function reset() {
 		boid.setWorldSize(500, 500, 400);
 
 		bird = birds[i] = new THREE.Mesh(new Bird(), new THREE.MeshBasicMaterial({
-			color: Math.random() * bird_color,
+			color: bird_color,
 			side: THREE.DoubleSide
 		}));
 		bird.phase = Math.floor(Math.random() * 62.83);
@@ -132,8 +135,48 @@ function reset() {
 function checkKeyPressed(e) {
 	if (e.keyCode == "32") {
 		simulating = !simulating;
-        console.log("The space key is pressed.");
-    }
+		console.log("The space key is pressed.");
+		if (simulating) {
+			Tone.Transport.start();
+		} else {	
+			Tone.Transport.stop();
+		}
+	}
+	// all test keys
+	if (e.keyCode == "69") {	// e
+		mEnv = !mEnv;
+		if (mEnv) {
+			env.triggerAttack();
+		} else {
+			env.triggerRelease();
+		}
+
+	}
+
+	if (e.keyCode == "83") {	// s
+		mSyn = !mSyn;
+		if (mSyn) {
+			synth.triggerAttack(400);
+		} else {
+			synth.triggerRelease();
+		}
+
+	}
+	if (e.keyCode == "13") {
+		reset();
+		// console.log("The space key is pressed.");
+	}
+	if (e.keyCode == "65") {
+		var index = Math.round(Math.random() * 8);
+		background = back_colors[index]; //16777215
+		renderer.setClearColor(background);
+		console.log("background: " + background);
+	}
+	if (e.keyCode == "66") {
+		var index = Math.round(Math.random() * 2);
+		bird_color = bird_colors[index]; //16777215
+		console.log("bird: " + index);
+	}
 }
 
 function onWindowResize() {
@@ -186,7 +229,8 @@ function render() {
 		bird = birds[i];
 		bird.position.copy(boids[i].position);
 
-		color = bird.material.color;
+		color = bird_color;
+		// color.alpha = 0.1;
 		color.r = color.g = color.b = (500 - bird.position.z) / 1000;
 
 		bird.rotation.y = Math.atan2(-boid.velocity.z, boid.velocity.x);
