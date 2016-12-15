@@ -30,6 +30,7 @@ var mTimer = 160;
 var mCycle, mVelocityX, mVelocityY, mVelocityx, mVelocityy;
 var ratio = 0.5;
 var maxSpeed = 3;
+var mBPM = 90;
 
 init();
 animate();
@@ -137,7 +138,7 @@ function valuesChanger() {
 	}
 	if (effectController.max_speed != maxSpeed) {
 		maxSpeed = effectController.max_speed;
-		reset();
+		setSpeed();
 	}
 	// reset();
 	// init();
@@ -148,11 +149,12 @@ function reset() {
 	scene = new THREE.Scene();
 	// scene.add(group);
 	Tone.Transport.bpm.value = bird_num / 2 + 55;
-	// mTimer = 60 * 60 * 4 / Tone.Transport.bpm.value;
-	// gain = (500 - camera.position.z) / 50;
-	// piano.volume.value = -8 + gain;
-	// kick.volume.value = -10 + gain;
-	// snare.volume.value = -15 + gain;
+	mBPM = Tone.Transport.bpm.value
+		// mTimer = 60 * 60 * 4 / Tone.Transport.bpm.value;
+		// gain = (500 - camera.position.z) / 50;
+		// piano.volume.value = -8 + gain;
+		// kick.volume.value = -10 + gain;
+		// snare.volume.value = -15 + gain;
 
 
 	birds = [];
@@ -179,6 +181,14 @@ function reset() {
 		scene.add(bird);
 
 
+	}
+}
+
+function setSpeed() {
+	for (var i = 0, il = birds.length; i < il; i++) {
+		// boid calculate position of bird
+		boid = boids[i];
+		boid._maxSpeed = maxSpeed;
 	}
 }
 
@@ -306,6 +316,7 @@ function render() {
 		// boid calculate position of bird
 		boid = boids[i];
 		boid.run(boids);
+		// console.log("msxspeed: "+ boids[i]._maxSpeed);
 		// bird show on the screen
 		bird = birds[i];
 		bird.position.copy(boids[i].position);
@@ -353,7 +364,8 @@ function render() {
 			//mute the output
 			// vol.mute = true;
 		}
-		mTimer = 60 * 60 * 4 / Tone.Transport.bpm.value;
+		mTimer = 60 * 60 * 4 / mBPM;
+
 		mCycle = 0;
 		mVelocityX = 0;
 		mVelocityY = 0;
