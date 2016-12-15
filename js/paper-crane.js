@@ -11,6 +11,7 @@ var Boid = function() {
 		_maxSpeed = 4,
 		_maxSteerForce = 0.1,
 		_avoidWalls = false;
+		cycle = 0;
 
 	this.position = new THREE.Vector3();
 	this.velocity = new THREE.Vector3();
