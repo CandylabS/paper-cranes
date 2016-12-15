@@ -27,8 +27,9 @@ var mSyn = false;
 var mMeasure = 0;
 var indexScale = 0;
 var mTimer = 160;
-var mCycle, mVelocityX, mVelocityY;
+var mCycle, mVelocityX, mVelocityY, mVelocityx, mVelocityy;
 var ratio = 0.5;
+var maxSpeed = 3;
 
 init();
 animate();
@@ -41,6 +42,8 @@ function init() {
 	mCycle = 0;
 	mVelocityX = 0;
 	mVelocityY = 0;
+	mVelocityx = 0;
+	mVelocityy = 0;
 
 	scene = new THREE.Scene();
 
@@ -86,7 +89,8 @@ function init() {
 		chord: 2,
 		scale: 0,
 		camera: 800,
-		bird_num: 70
+		bird_num: 70,
+		max_speed: 3
 	};
 
 
@@ -94,6 +98,7 @@ function init() {
 	gui.add(effectController, "scale", 0, 6, 1).onChange(valuesChanger);
 	gui.add(effectController, "camera", 100, 1000, 20).onChange(valuesChanger);
 	gui.add(effectController, "bird_num", 10, 120, 5).onChange(valuesChanger);
+	gui.add(effectController, "max_speed", 1, 5, 1).onChange(valuesChanger);
 	gui.close();
 
 	window.addEventListener('resize', onWindowResize, false);
@@ -109,7 +114,7 @@ function valuesChanger() {
 		indexScale = effectController.scale;
 		background = back_colors[indexScale]; //16777215
 		renderer.setClearColor(background);
-				// set scale
+		// set scale
 		mScale = findScale(indexScale);
 		// console.log("mScle: " + findScale(index));
 		mDivision = 360 / (mScale.length);
@@ -128,6 +133,10 @@ function valuesChanger() {
 	}
 	if (effectController.bird_num != bird_num) {
 		bird_num = effectController.bird_num;
+		reset();
+	}
+	if (effectController.max_speed != maxSpeed) {
+		maxSpeed = effectController.max_speed;
 		reset();
 	}
 	// reset();
@@ -152,6 +161,7 @@ function reset() {
 	for (var i = 0; i < bird_num; i++) {
 
 		boid = boids[i] = new Boid();
+		boid._maxSpeed = maxSpeed;
 		boid.position.x = Math.random() * 400 - 200;
 		boid.position.y = Math.random() * 400 - 200;
 		boid.position.z = Math.random() * 400 - 200;
@@ -312,8 +322,10 @@ function render() {
 		// bird 1
 		boid.cycle = Math.max(0, bird.rotation.z);
 		mCycle += boid.cycle;
-		mVelocityY += boid.velocity.y;
-		mVelocityX += boid.velocity.x;
+		mVelocityY += Math.abs(boid.velocity.y);
+		mVelocityX += Math.abs(boid.velocity.x);
+		mVelocityy += boid.velocity.y;
+		mVelocityx += boid.velocity.x;
 
 		bird.phase = (bird.phase + (Math.max(0, bird.rotation.z) + 0.1)) % 62.83;
 		bird.geometry.vertices[5].y = bird.geometry.vertices[4].y = Math.sin(bird.phase) * 5;
@@ -325,9 +337,9 @@ function render() {
 		mMeasure++;
 		// arc tangent, -180 to 180 mScale.length
 		// var note = Math.floor(((Math.atan2(boid.velocity.y, boid.velocity.x) * 180 / Math.PI) + 180) / mDivision);
-		// console.log("output: " + note);
-		if (mCycle > (ratio * bird_num)) {
-			var note = Math.floor(((Math.atan2(mVelocityY, mVelocityX) * 180 / Math.PI) + 180) / mDivision);
+		console.log(mVelocityY / birds.length);
+		if ((mVelocityY / birds.length > 250) || (mVelocityX / birds.length > 250)) {
+			var note = Math.floor(((Math.atan2(mVelocityy, mVelocityx) * 180 / Math.PI) + 180) / mDivision);
 			console.log("hit!" + note);
 			console.log("measure: " + mMeasure);
 			playChord(note, mMeasure);
@@ -345,6 +357,8 @@ function render() {
 		mCycle = 0;
 		mVelocityX = 0;
 		mVelocityY = 0;
+		mVelocityx = 0;
+		mVelocityy = 0;
 	}
 
 	renderer.render(scene, camera);
